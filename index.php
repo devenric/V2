@@ -71,7 +71,7 @@ $productos = $gestor->listar();
             margin-bottom: 15px;
         }
         input[type="text"] {
-            width: 100%;
+            width: fit-content;
             padding: 8px;
             margin: 0;
             margin-top: 5px;
