@@ -22,6 +22,9 @@ if ($accion === 'editar') {
     $id = $_POST['id'];
     $nombre = $_POST['nombre'];
     $formato = $_POST['formato'];
+    $gestor->editar($playlist);
+    header("Location: index.php");
+    exit;
 }
 if ($accion === 'editar') {
     //cogemos por POST los datos
@@ -72,9 +75,9 @@ $productos = $gestor->listar();
             <!-- Botón Editar -->
             <form method="POST" action="index.php?accion=editar" style="display:inline;"> <!-- Recogemos por GET la acción -->
                 <!-- recogemos por POST los datos para modificar (podemos poner datos por defecto) -->
-                 <label for="id"></label><input type="hidden"name="id" value=<?$p->getId()?>>
-                    <label for="nombre">Nombre:</label><input type="text" name ="nombre" value=<?$p->getId()?>>
-                    <label for="formato">Formato:</label><input type="text" name="formato" value=<?$p->getId()?>>
+                 <label for="id"></label><input type="hidden"name="id" value="<?=$p->getId()?>">
+                    <label for="nombre">Nombre:</label><input type="text" name ="nombre" value="<?=$p->getNombre()?>">
+                    <label for="formato">Formato:</label><input type="text" name="formato" value="<?=$p->getFormato()?>">
                     <input type="submit">
             </form>
 

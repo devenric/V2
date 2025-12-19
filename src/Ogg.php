@@ -3,8 +3,8 @@
 class Ogg extends Tracks{
     private $electrica;
 
-    function __construct($id, $nombre, $precio, $electrica){
-        parent::__construct($id, $nombre, $precio);
+    function __construct($id, $nombre, $formato){
+        parent::__construct($id, $nombre, $formato);
         $this->formato=$formato;
     }
 

@@ -2,9 +2,9 @@
 
 class Tracks {
 
-    private $id;
-    private $nombre;
-    private $formato;
+    protected $id;
+    protected $nombre;
+    protected $formato;
 
     public function __construct($id, $nombre, $formato) {
         $this->id = $id;
