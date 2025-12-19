@@ -28,9 +28,15 @@ if ($accion === 'editar') {
 }
 if ($accion === 'eliminar') {
     //cogemos por POST los datos
-    $id = $_POST['id'];
-    $nombre = $_POST['nombre'];
-    $formato = $_POST['formato'];
+    $id = $_GET['id'];
+    $gestor->eliminar($id);
+    header("Location: index.php");
+    exit;
+}
+if ($accion === 'borrarTodo') {
+    session_destroy();
+    header("Location: index.php");
+    exit;
 }
 //de forma análoga haremos editar, eliminar (le pasamos por GET el id) y borrar todos
 
@@ -80,4 +86,4 @@ $productos = $gestor->listar();
         </td>
     </tr>
     <?php endforeach; ?>
-
+    <a href="index.php?accion=borrarTodo">Borrar Todo</a> <!-- Recogemos por GET el id -->
