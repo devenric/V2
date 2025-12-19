@@ -22,15 +22,9 @@ if ($accion === 'editar') {
     $id = $_POST['id'];
     $nombre = $_POST['nombre'];
     $formato = $_POST['formato'];
-    $gestor->editar($playlist);
+    $gestor->actualizar($id,$nombre,$formato);
     header("Location: index.php");
     exit;
-}
-if ($accion === 'editar') {
-    //cogemos por POST los datos
-    $id = $_POST['id'];
-    $nombre = $_POST['nombre'];
-    $formato = $_POST['formato'];
 }
 if ($accion === 'eliminar') {
     //cogemos por POST los datos

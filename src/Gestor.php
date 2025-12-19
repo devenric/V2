@@ -25,10 +25,10 @@ class Gestor {
     }
 
     public function actualizar($id, $nombre, $formato) {
-        foreach (  $_SESSION['productos'] as $p) {
+        foreach ($_SESSION['productos'] as $p) {
             if ($p->getId() == $id) {
                 $p->setNombre($nombre);
-                $p->setPrecio($formato);
+                $p->setFormato($formato);
                 return true;
             }
         }
