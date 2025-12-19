@@ -45,14 +45,77 @@ $productos = $gestor->listar();
 
 <!DOCTYPE html>
 <html>
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD V2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 400px;
+        }
+        label {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 0;
+            margin-top: 5px;
+            margin-bottom: 0;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
 <!-- ...-->
 <!-- FORMULARIO CREAR -->
-<h2>Crear Producto</h2>
+<h2>CRUD - Playlist</h2>
 
 <form method="POST" action="index.php?accion=crear"> <!-- Aquí está la clave de recoger por GET la acción -->
-    <label for="ID"><input type="text" name= "id"></label>
-    <label for="nombre">nombre:<input type="text" name= "nombre"></label>
-    <label for="formato">formato:<input type="text" name= "formato"></label>
+    <label for="id">ID:
+        <input type="text" name="id" id="id">
+    </label>
+    <label for="nombre">Nombre de la canción:
+        <input type="text" name="nombre" id="nombre">
+    </label>
+    <label for="formato">Formato:
+        <input type="text" name="formato" id="formato">
+    </label>
     <input type="submit">
 </form>
 
@@ -86,4 +149,10 @@ $productos = $gestor->listar();
         </td>
     </tr>
     <?php endforeach; ?>
+    <?php if (empty($productos)): ?>
+    <tr><td colspan="4" style="text-align:center;">No hay registros</td></tr>
+    <?php endif; ?>
+    </table>
     <a href="index.php?accion=borrarTodo">Borrar Todo</a> <!-- Recogemos por GET el id -->
+</body>
+</html>
